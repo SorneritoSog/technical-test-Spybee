@@ -70,3 +70,11 @@ This project implements a dashboard to manage construction/engineering projects.
 - **Sort**: Use the sort sort menu to order projects by title or date.
 - **View Details**: Click "Ver resumen" or the sidebar trigger to open the detailed metrics panel.
 - **Navigate**: Click on a project in the list to fly to its location on the map.
+
+## Challenge Notes & Learning Journey
+
+This project represented a significant learning milestone for me:
+
+- **Next.js Adoption**: Prior to this challenge, I had not worked with Next.js. I spent time studying its architecture (App Router) and successfully implemented the project using its latest conventions.
+- **Geospatial Implementation**: Integrating Mapbox GL was a new area for me. I conducted research on geospatial libraries and documentation to achieve the "Fly-To" functionality and the synchronization between the state store and the map markers.
+- **Problem Solving**: Even though some technologies were new, I was able to deliver a functional, pixel-perfect solution within the requested timeframe by focusing on documentation and best practices.
