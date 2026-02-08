@@ -1,0 +1,184 @@
+.details-content {
+    min-width: 22.5rem;
+    width: 22.5rem;
+    height: 100%;
+    background-color: white;
+    position: relative;
+    transform: translateX(var(--spacing-xl));
+    transition: all 0.3s ease;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+
+    & .close-details-button {
+        position: absolute;
+        top: var(--spacing-xs);
+        right: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        padding-right: 3px;
+        transform: translateX(50%);
+        border: solid 1px var(--divider-middle-color);
+        border-radius: 50%;
+        background-color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & svg {
+          width: 0.6rem;
+          stroke: var(--text-color);
+        }
+    }
+
+    & .resume-header {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
+
+        & svg {
+            width: var(--font-size-xl);
+            stroke: var(--text-color);
+        }
+    }
+
+    & .resume-toolbar-actions {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        justify-items: start;
+        border-bottom: solid 1px var(--divider-middle-color);
+
+        & button {
+            background-color: transparent;
+            border-radius: 0;
+            margin-bottom: -1px;
+        }
+
+        & button.active {
+            border-bottom: solid 2px var(--brand-color);
+        }
+
+        & .tab-button {
+            padding: 0 var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
+        }
+
+        & .filter-button {
+            padding-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+
+            & svg {
+                width: var(--font-size-lg);
+                stroke: var(--text-color);
+            }
+        }
+    }
+
+    & .general-resume {
+        flex-grow: 1;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        
+        & header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-md);
+
+            & h5 {
+                display: flex;
+                align-items: center;
+                gap: var(--spacing-xs);
+
+                & svg {
+                    width: var(--font-size-lg);
+                    stroke: var(--text-color);
+                }
+            }
+
+            & button {
+                color: #3096FA;
+                background-color: transparent;
+            }
+        }
+
+        & .elements-to-beat-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-xs);
+
+            & .item-card {
+                background-color: var(--background-secondary-color);
+                padding: var(--spacing-md) var(--spacing-sm);
+                border-radius: var(--border-radius-sm);
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+
+                & .chart-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: var(--spacing-sm);
+                }
+            }
+        }
+
+        & table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+
+            & tr {
+                display: grid;
+                grid-template-columns: 1fr 3.5rem 5.5rem;
+                text-align: left;
+                gap: var(--spacing-lg);
+                padding: var(--spacing-sm);
+            }
+
+            & thead {
+                background-color: var(--background-color);
+            }
+
+            & tbody {
+                background-color: var(--background-secondary-color);
+
+                & td:first-child {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                & td:last-child span {
+                    display: flex;
+                    align-items: center;
+                    gap: 2px;
+
+                    & svg {
+                        width: var(--font-size-md);
+                        stroke: var(--text-secondary-color);
+                    }
+                }
+
+                & .users-column {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row-reverse;
+                    gap: 6px;
+                }
+            }
+        }
+    }
+}
+
+.active {
+    transform: translateX(0);
+}

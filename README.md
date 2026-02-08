@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Technical Test Spybee - Project Management Dashboard
 
-## Getting Started
+A React/Next.js application developed as a technical challenge to manage and visualize a portfolio of projects. The application includes list views, interactive maps, filtering, sorting, and a dynamic summary dashboard.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project implements a dashboard to manage construction/engineering projects. It features a synchronized dual view (List + Map), real-time filtering, and a detailed side panel for statistical summaries.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Project List
+   - Displays projects in a grid/list format (locally paginated).
+   - Shows key milestones, status, teams, and pending items.
+   - Interactive rows that sync with the map view.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Interactive Map (Mapbox)
+   - Renders project locations using custom markers.
+   - Fully synchronized with the list: clicking a marker highlights the project in the list and vice versa.
+   - Updates dynamically based on active filters.
 
-## Learn More
+3. State Management (Zustand)
+   - Centralized store for project data, active filters, search terms, and map state.
+   - Handles sorting logic (numeric and alphabetic) and "fly-to" map actions.
 
-To learn more about Next.js, take a look at the following resources:
+4. Dynamic Resume Sidebar
+   - Provides specific statistics for the current selection.
+   - **Important**: The data shown in the "Resume" sidebar (charts, upcoming items, events) is calculated based on the *filtered projects*, not the entire database. This ensures the summary is always context-relevant to the user's current search or filter criteria.
+   - Visualizes "Items Due" using custom SVG circular charts.
+   - Lists upcoming deadlines and scheduled tasks.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework**: Next.js 15 (App Router)
+- **State Management**: Zustand
+- **Maps**: Mapbox GL JS + react-map-gl
+- **Styling**: CSS Modules
+- **Icons**: Custom SVG component system
 
-## Deploy on Vercel
+## Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository.
+2. Install dependencies:
+   `ash
+   npm install
+   `
+3. Set up environment variables:
+   - Create a .env.local file.
+   - Add your Mapbox token (required for the map view to render correctly):
+     `
+     NEXT_PUBLIC_MAPBOX_TOKEN=your_token_here
+     `
+     *Note: You may also need to manually insert the token in src/components/ProjectsMap.jsx if environment variables are not strictly enforced in development.*
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Run the development server:
+   `ash
+   npm run dev
+   `
+
+## Project Structure
+
+- src/app: Page routes and layouts.
+- src/components: Reusable UI components (ProjectsList, ProjectsMap, ProjectsResume, CircleChart, etc.).
+- src/store: Zustand store definitions (useProjectsStore.js).
+- src/data: Mock JSON data (projectsData.json).
+- src/icons: SVG icon collection.
+
+## Usage Guide
+
+- **Search**: Use the top toolbar to search projects by title.
+- **Sort**: Use the sort sort menu to order projects by title or date.
+- **View Details**: Click "Ver resumen" or the sidebar trigger to open the detailed metrics panel.
+- **Navigate**: Click on a project in the list to fly to its location on the map.
